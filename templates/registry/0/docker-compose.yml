@@ -19,7 +19,7 @@ sslproxy:
   - ${DIR}/certs:/etc/nginx/certs:ro
   - ${DIR}/proxy:/etc/nginx/conf.d:ro
 registry:
-  image: registry:2.1
+  image: registry:2.3.1
   environment:
     REGISTRY_LOG_LEVEL: warn
     REGISTRY_STORAGE_DELETE_ENABLED: true
@@ -59,7 +59,7 @@ lb:
   - registry:registry
   - sslproxy:sslproxy
 portus:
-  image: sshipway/portus:2.0.3
+  image: sshipway/portus:latest
   environment: 
     PORTUS_MACHINE_FQDN: ${DOMAIN}
     PORTUS_PRODUCTION_HOST: db
